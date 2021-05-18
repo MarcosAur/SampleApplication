@@ -76,8 +76,6 @@ public class DepartmentListController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        setService(new DepartmentService());
-        updateTableView();
         initializeNodes();
     }
 

@@ -2,6 +2,7 @@ package views.util;
 
 import application.Program;
 import java.io.IOException;
+import java.util.function.Consumer;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -15,7 +16,7 @@ import javafx.scene.layout.VBox;
  */
 public class ChangeView {
     
-    public void loadView(String path){
+    public <T> void loadView(String path, Consumer<T> initialize){
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(path));
             VBox newVbox = loader.load();
@@ -28,6 +29,9 @@ public class ChangeView {
             oldVbox.getChildren().clear();
             oldVbox.getChildren().add(node);
             oldVbox.getChildren().addAll(newVbox.getChildren());
+            
+            T controller = loader.getController();
+            initialize.accept(controller);
             
         } catch (IOException ex) {
             Alerts.showAlert("Error", "Corrupted Archive", ex.getMessage(), Alert.AlertType.ERROR);
