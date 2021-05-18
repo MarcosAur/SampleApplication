@@ -2,8 +2,6 @@ package views.util;
 
 import application.Program;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -35,4 +33,5 @@ public class ChangeView {
             Alerts.showAlert("Error", "Corrupted Archive", ex.getMessage(), Alert.AlertType.ERROR);
         }
     }
+    
 }
