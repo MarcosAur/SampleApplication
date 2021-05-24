@@ -8,23 +8,14 @@ import java.util.Objects;
  * @author marcos
  */
 public class Department implements Serializable{
-    private String name;
     private Integer id;
+    private String name;
     
-    public Department(String name){
-        this.name = name;
+    public Department() {
     }
-
+    
     public Department(Integer id, String name) {
-        this.name = name;
         this.id = id;
-    }
-    
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
         this.name = name;
     }
 
@@ -36,11 +27,18 @@ public class Department implements Serializable{
         this.id = id;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 83 * hash + Objects.hashCode(this.name);
-        hash = 83 * hash + Objects.hashCode(this.id);
+        int hash = 7;
+        hash = 73 * hash + Objects.hashCode(this.id);
         return hash;
     }
 
@@ -64,10 +62,7 @@ public class Department implements Serializable{
 
     @Override
     public String toString() {
-        return "Department{" + "name= " + name + ", id= " + id + '}';
+        return "{" + "\nid=" + id + "\nname=" + name + '}';
     }
-    
-    
-    
-    
+
 }

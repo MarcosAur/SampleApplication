@@ -16,7 +16,7 @@ import javafx.scene.layout.VBox;
  */
 public class ChangeView {
     
-    public <T> void loadView(String path, Consumer<T> initialize){
+    public synchronized void loadView(String path){
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(path));
             VBox newVbox = loader.load();
@@ -29,9 +29,6 @@ public class ChangeView {
             oldVbox.getChildren().clear();
             oldVbox.getChildren().add(node);
             oldVbox.getChildren().addAll(newVbox.getChildren());
-            
-            T controller = loader.getController();
-            initialize.accept(controller);
             
         } catch (IOException ex) {
             Alerts.showAlert("Error", "Corrupted Archive", ex.getMessage(), Alert.AlertType.ERROR);

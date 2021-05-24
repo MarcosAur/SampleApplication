@@ -42,15 +42,11 @@ public class MainViewController implements Initializable {
 
     @FXML
     public void onItemAboutAction() {
-        Program.changeView.loadView("/views/AboutView.fxml", x -> {});
+        Program.changeView.loadView("/views/AboutView.fxml");
     }
 
     public void onItemDepartmentAction() {
-        Program.changeView.loadView("/views/DepartmentList.fxml", ((DepartmentListController controll) -> {
-            controll.setService(new DepartmentService());
-            controll.updateTableView();
-            
-        }));
+        Program.changeView.loadView("/views/DepartmentList.fxml");
     }
 
     @Override

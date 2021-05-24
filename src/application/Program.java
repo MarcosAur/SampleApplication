@@ -11,8 +11,8 @@ import views.util.ChangeView;
  *
  * @author marcos
  */
-public class Program extends Application{
-    
+public class Program extends Application {
+
     private static Scene scene;
     public static ChangeView changeView = new ChangeView();
 
@@ -23,7 +23,7 @@ public class Program extends Application{
     @Override
     public void start(Stage stage) throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/MainView.fxml"));
-        ScrollPane parent =loader.load();
+        ScrollPane parent = loader.load();
         scene = new Scene(parent);
         stage.setScene(scene);
         stage.setResizable(false);
@@ -34,5 +34,5 @@ public class Program extends Application{
     public static Scene getScene() {
         return scene;
     }
-    
+
 }
